@@ -41,7 +41,7 @@ export const themeSettings = (mode) => {
               main: colorTokens.primary[500],
               light: colorTokens.primary[800],
             },
-            tugadi: {
+            neutral: {
               dark: colorTokens.grey[100],
               main: colorTokens.grey[200],
               mediumMain: colorTokens.grey[300],

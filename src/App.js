@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import Navbar from "./scenes/navbar";
 
 const App = () => {
   const mode = useSelector((state) => state.getInitialState.mode);
@@ -16,7 +15,6 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
