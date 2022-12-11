@@ -7,8 +7,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { EditOutlinedIcon } from "@mui/icons-material";
-import Formik from "formik";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
+import * as Formik from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +26,7 @@ const registerSchema = yup.object().shape({
   picture: yup.string().required("required"),
 });
 
-const loginSchema = yub.object().shape({
+const loginSchema = yup.object().shape({
   email: yup.string().email("i nvaild email").required("required"),
   password: yup.string().required("required"),
 });
@@ -129,8 +129,37 @@ const Form = () => {
                 />
                 <Box
                   gridColumn="span 4"
-                  border={`1px solid ${palette.neutral.medium}`}
-                ></Box>
+                  border={`1px solid ${palette.info.medium}`}
+                  borderRadius="4px"
+                  p="1rem"
+                >
+                  <Dropzone
+                    acceptedFiles=".png,.jpeg,.jpg,.gif"
+                    multiple={false}
+                    onDrop={(acceptedFiles) =>
+                      setFielValue("picture", acceptedFiles[0])
+                    }
+                  >
+                    {({ getRootProps, getInputProps }) => (
+                      <Box
+                        {...getRootProps()}
+                        border={`2px solid ${palette.primary.main}`}
+                        p="1rem"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
+                      >
+                        <input {...getInputProps()} />
+                        {!values.picture ? (
+                          <p>Add picture here</p>
+                        ) : (
+                          <FlexBetween>
+                            <Typography>{values.picture.name}</Typography>
+                            <ModeEditOutlineIcon />
+                          </FlexBetween>
+                        )}
+                      </Box>
+                    )}
+                  </Dropzone>
+                </Box>
               </>
             )}
           </Box>

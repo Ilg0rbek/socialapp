@@ -17,6 +17,7 @@ const App = () => {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <LoginPage />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />

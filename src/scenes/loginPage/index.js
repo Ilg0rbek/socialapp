@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Form from "./Form";
 
-
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("min-width:1000px");
@@ -15,7 +14,7 @@ const LoginPage = () => {
         p={"1rem 6%"}
         textAlign={"center"}
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
+        <Typography fontWeight={"bold"} fontSize="32px" color="primary">
           Sociopedia
         </Typography>
       </Box>
@@ -30,6 +29,7 @@ const LoginPage = () => {
           Welcome to Social media the Social media Socipaths!
         </Typography>
       </Box>
+      <Form />
     </Box>
   );
 };
