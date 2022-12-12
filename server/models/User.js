@@ -1,18 +1,18 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const UserSchema = Schema(
+const UserSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
       required: true,
       min: 2,
-      max: 40,
+      max: 50,
     },
     lastName: {
       type: String,
       required: true,
       min: 2,
-      max: 40,
+      max: 50,
     },
     email: {
       type: String,
@@ -23,7 +23,7 @@ const UserSchema = Schema(
     password: {
       type: String,
       required: true,
-      min: 8,
+      min: 5,
     },
     picturePath: {
       type: String,
@@ -35,11 +35,11 @@ const UserSchema = Schema(
     },
     location: String,
     occupation: String,
-    viwedProfile: Number,
+    viewedProfile: Number,
     impressions: Number,
   },
-  { timestaps: true }
+  { timestamps: true }
 );
 
-const User = model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;
