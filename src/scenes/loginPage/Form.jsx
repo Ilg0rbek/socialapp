@@ -73,7 +73,6 @@ const Form = () => {
     )
     const savedUser = await savedUserResponse.json()
     onSubmitProps.resetForm()
-
     if (savedUser) {
       setPageType('login')
     }
@@ -102,7 +101,6 @@ const Form = () => {
     if (isLogin) await login(values, onSubmitProps)
     if (isRegister) await register(values, onSubmitProps)
   }
-
   return (
     <Formik
       onSubmit={handleFormSubmit}
@@ -272,5 +270,4 @@ const Form = () => {
     </Formik>
   )
 }
-
 export default Form
